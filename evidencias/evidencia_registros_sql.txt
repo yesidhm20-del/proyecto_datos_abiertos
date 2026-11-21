@@ -1,0 +1,25 @@
+Primera sincronización, nuevos: 100
+Segunda sincronización, nuevos: 0 (sin duplicados)
+
+Total en RegistrosAPI: 100 | Departamentos: 1
+
+05002 | ABEJORRAL | ANTIOQUIA | Municipio
+05004 | ABRIAQUÍ | ANTIOQUIA | Municipio
+05021 | ALEJANDRÍA | ANTIOQUIA | Municipio
+05030 | AMAGÁ | ANTIOQUIA | Municipio
+05031 | AMALFI | ANTIOQUIA | Municipio
+05034 | ANDES | ANTIOQUIA | Municipio
+05036 | ANGELÓPOLIS | ANTIOQUIA | Municipio
+05038 | ANGOSTURA | ANTIOQUIA | Municipio
+05040 | ANORÍ | ANTIOQUIA | Municipio
+05044 | ANZÁ | ANTIOQUIA | Municipio
+05045 | APARTADÓ | ANTIOQUIA | Municipio
+05051 | ARBOLETES | ANTIOQUIA | Municipio
+05055 | ARGELIA | ANTIOQUIA | Municipio
+05059 | ARMENIA | ANTIOQUIA | Municipio
+05079 | BARBOSA | ANTIOQUIA | Municipio
+05088 | BELLO | ANTIOQUIA | Municipio
+05086 | BELMIRA | ANTIOQUIA | Municipio
+05091 | BETANIA | ANTIOQUIA | Municipio
+05093 | BETULIA | ANTIOQUIA | Municipio
+05107 | BRICEÑO | ANTIOQUIA | Municipio

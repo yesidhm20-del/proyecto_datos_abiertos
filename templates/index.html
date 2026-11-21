@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Datos Abiertos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+<body>
+    <h1>Sistema de Consulta de Datos Abiertos</h1>
+    <p>Municipios de Colombia (DIVIPOLA) obtenidos desde datos.gov.co</p>
+
+    <form action="{{ url_for('sincronizar') }}" method="POST">
+        <button type="submit">Consultar API y guardar datos</button>
+    </form>
+
+    {% with mensajes = get_flashed_messages(with_categories=true) %}
+      {% for categoria, mensaje in mensajes %}
+        <p class="mensaje {{ categoria }}"><strong>{{ categoria }}:</strong> {{ mensaje }}</p>
+      {% endfor %}
+    {% endwith %}
+
+    <h2>Resumen</h2>
+    <div class="resumen">
+        <div class="tarjeta"><span>{{ resumen.total }}</span>Registros guardados</div>
+        <div class="tarjeta"><span>{{ resumen.departamentos }}</span>Departamentos distintos</div>
+    </div>
+    {% if resumen.top %}
+    <p><strong>Departamentos con más municipios guardados:</strong></p>
+    <ul>
+        {% for d in resumen.top %}
+        <li>{{ d.departamento }}: {{ d.cantidad }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <h2>Registros almacenados</h2>
+    <form action="{{ url_for('inicio') }}" method="GET">
+        <input type="text" name="q" value="{{ filtro }}"
+               placeholder="Buscar municipio o departamento">
+        <button type="submit">Buscar</button>
+        <a href="{{ url_for('inicio') }}">Limpiar</a>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Municipio</th>
+                <th>Departamento</th>
+                <th>Tipo</th>
+                <th>Latitud</th>
+                <th>Longitud</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fila in registros %}
+            <tr>
+                <td>{{ fila.id_api }}</td>
+                <td>{{ fila.municipio }}</td>
+                <td>{{ fila.departamento }}</td>
+                <td>{{ fila.tipo_municipio }}</td>
+                <td>{{ fila.latitud }}</td>
+                <td>{{ fila.longitud }}</td>
+            </tr>
+        {% else %}
+            <tr><td colspan="6">No hay registros para mostrar.</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
